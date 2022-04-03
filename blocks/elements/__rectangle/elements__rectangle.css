@@ -1,0 +1,7 @@
+.elements__rectangle {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 25px 15px 0 21px;
+  max-width: 246px;
+}
