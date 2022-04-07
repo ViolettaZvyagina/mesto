@@ -1,6 +1,7 @@
 .profile__user-activity {
     margin: 0;
-    font-family: 'Inter-Regular';
+    max-width: 290px;
+    font-family: 'Inter', 'Arial', sans-serif;
     font-style: normal;
     font-weight: 400;
     font-size: 18px;
@@ -12,6 +13,7 @@
 
 @media screen and (max-width: 1000px) {
   .profile__user-activity {
+    max-width: 170px;
     font-size: 14px;
     line-height: 1.21;
     padding: 0 0 34px 60px;

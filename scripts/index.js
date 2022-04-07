@@ -6,16 +6,19 @@ let popupContainer = popup.querySelector('.popup__container');
 let closeButton = popup.querySelector('.popup__close-button');
 let profileUserName = content.querySelector('.profile__user-name');
 let profileUserActivity = content.querySelector('.profile__user-activity');
-let popupUserName = popup.querySelector('.popup__user-name');
-let popupUserActivity = popup.querySelector('.popup__user-activity');
-let popupSubmitButton = popup.querySelector('.popup__submit-button');
+let popupUserName = popup.querySelector('.popup__input_type_name');
+let popupUserActivity = popup.querySelector('.popup__input_type_activity');
 let poupForm = popup.querySelector('.popup__form');
 
 function popupAction() {
-  popup.classList.toggle('popup_opened');
 
-  popupUserName.value = profileUserName.textContent;
-  popupUserActivity.value = profileUserActivity.textContent;
+  if (popup.classList.contains('popup_opened')) {
+    popup.classList.toggle('popup_opened');
+  } else {
+    popup.classList.toggle('popup_opened');
+    popupUserName.value = profileUserName.textContent;
+    popupUserActivity.value = profileUserActivity.textContent;
+  }
 }
 
 editButton.addEventListener('click', popupAction);
@@ -31,3 +34,4 @@ function formSubmitHandler (evt) {
 }
 
 poupForm.addEventListener('submit', formSubmitHandler);
+
