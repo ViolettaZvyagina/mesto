@@ -6,10 +6,18 @@
   padding-top: 40px;
 }
 
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 900px) {
   .profile {
-  flex-direction: column;
-  padding-top: 42px;
-  padding-bottom: 36px;
+    margin: 0 50px;
   }
 }
+
+@media screen and (max-width: 700px) {
+  .profile {
+    flex-direction: column;
+    padding-top: 42px;
+    padding-bottom: 36px;
+    margin: 0;
+  }
+}
+
