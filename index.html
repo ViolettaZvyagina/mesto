@@ -40,8 +40,18 @@
       <div class="popup__container">
         <form action="#" name="edite-profile" class="popup__form">
           <h2 class="popup__title">Редактировать профиль</h2>
-           <input type="text" name="name" class="popup__input popup__input_type_name" placeholder="Имя">
-           <input type="text" name="activity" class="popup__input popup__input_type_activity" placeholder="Профессия">
+           <input 
+           required type="text" 
+           name="name" 
+           class="popup__input popup__input_type_name" 
+           placeholder="Имя"
+           >
+           <input 
+           required type="text" 
+           name="activity" 
+           class="popup__input popup__input_type_activity" 
+           placeholder="Профессия"
+           >
            <button type="submit" aria-label="Сохранить" class="popup__submit-button">Сохранить</button>
         </form>
         <button type="button" aria-label="Закрыть" class="popup__close-button"></button>
@@ -52,8 +62,18 @@
       <div class="popup__container">
         <form action="#" name="add-card" class="popup__form">
           <h2 class="popup__title">Новое место</h2>
-            <input type="text" name="name" class="popup__input popup__input_type_place" placeholder="Название">
-            <input type="text" name="activity" class="popup__input popup__input_type_link" placeholder="Ссылка на картинку">
+            <input 
+            required type="text" 
+            name="name" 
+            class="popup__input popup__input_type_place" 
+            placeholder="Название"
+            >
+            <input 
+            required type="url" 
+            name="activity" 
+            class="popup__input popup__input_type_link" 
+            placeholder="Ссылка на картинку"
+            >
             <button type="submit" aria-label="Сохранить" class="popup__submit-button">Создать</button>
         </form>
         <button type="button" aria-label="Закрыть" class="popup__close-button"></button>
@@ -70,16 +90,17 @@
   </div>  
 
   <template class="template-card">
-    <li class="elements__element">
-      <img src="#" alt="" class="elements__card">
-      <button type="button" aria-label="Удалить" class="elements__delete-button"></button>
-      <div class="elements__rectangle">
-       <h2 class="elements__text"></h2>
-       <button type="button" aria-label="Лайк" class="elements__like-button"></button>
+    <li class="card">
+      <img src="#" alt="" class="card__image">
+      <button type="button" aria-label="Удалить" class="card__delete-button"></button>
+      <div class="card__rectangle">
+       <h2 class="card__text"></h2>
+       <button type="button" aria-label="Лайк" class="card__like-button"></button>
     </div>
     </li>
   </template>
 
+  <script src="./scripts/cards.js"></script>
   <script src="./scripts/index.js"></script>
 </body>
 </html>

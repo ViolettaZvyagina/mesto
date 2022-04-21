@@ -1,4 +1,4 @@
-.elements__rectangle {
+.card__rectangle {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
