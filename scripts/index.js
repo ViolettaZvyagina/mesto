@@ -53,18 +53,18 @@ function render() {
 render();
 
 function getElement(item) {
-  const ElementTemplate = template.content.cloneNode(true);
-  const elementImage = ElementTemplate.querySelector('.card__image');
+  const elementTemplate = template.content.cloneNode(true);
+  const elementImage = elementTemplate.querySelector('.card__image');
   elementImage.src = item.link;
-  const elementText = ElementTemplate.querySelector('.card__text');
+  const elementText = elementTemplate.querySelector('.card__text');
   elementText.textContent = item.name;
-  const buttonDelete = ElementTemplate.querySelector('.card__delete-button');
-  const buttonLike = ElementTemplate.querySelector('.card__like-button');
+  const buttonDelete = elementTemplate.querySelector('.card__delete-button');
+  const buttonLike = elementTemplate.querySelector('.card__like-button');
 
   elementImage.addEventListener('click', () => setPopupViewImageValues(item));
   buttonDelete.addEventListener('click', deleteElement);
   buttonLike.addEventListener('click', toggleLike);
-  return ElementTemplate;
+  return elementTemplate;
 }
 
 function setPopupViewImageValues(item) {
