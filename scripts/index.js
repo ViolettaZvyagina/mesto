@@ -2,6 +2,7 @@ const content = document.querySelector('.content');
 const profile = content.querySelector('.profile');
 const buttonEdit = profile.querySelector('.profile__edit-button');
 const popup = document.querySelector('.popup');
+const popups = document.querySelectorAll('.popup');
 const popupEditProfile = document.querySelector('.popup_type_edit-profile');
 const popupAddCard = document.querySelector('.popup_type_add-card');
 const buttonsClose = document.querySelectorAll('.popup__close-button');
@@ -26,8 +27,6 @@ function setPopupProfileValues() {
   popupUserActivity.value = profileUserActivity.textContent;
 }
 
-buttonEdit.addEventListener('click', setPopupProfileValues);
-
 function handleFormSubmit (evt) {
   evt.preventDefault();
 
@@ -39,10 +38,12 @@ function handleFormSubmit (evt) {
 
 function openPopup(popup) {
   popup.classList.add('popup_opened');
+  document.addEventListener('keydown', closePopupOnEsc);
 }
 
 function closePopup(popup) {
   popup.classList.remove('popup_opened');
+  document.removeEventListener('keydown', closePopupOnEsc);
 }
 
 function render() {
@@ -93,10 +94,27 @@ function handleFormCreate (evt) {
   popupFormCard.reset();
 }
 
+function closePopupOnEsc (evt) {
+  const openedPopup = document.querySelector('.popup_opened');
+  if (evt.key === 'Escape') {
+    closePopup(openedPopup);
+  }
+}
+
+function closePopupOnOverlay(evt) {
+  if(evt.target === evt.currentTarget) {
+    closePopup(evt.currentTarget);
+  }
+}
+
+
+
+
+buttonEdit.addEventListener('click', setPopupProfileValues);
 popupFormCard.addEventListener('submit', handleFormCreate);
 popupForm.addEventListener('submit', handleFormSubmit);
 buttonEdit.addEventListener('click', () => openPopup(popupEditProfile));
 buttonAdd.addEventListener('click', () => openPopup(popupAddCard));
 buttonsClose.forEach((el) => el.addEventListener('click', () => closePopup(el.closest('.popup'))));
-
+popups.forEach((popup) => popup.addEventListener('mousedown', closePopupOnOverlay));
 
