@@ -20,7 +20,8 @@ const popupUserLink = document.querySelector('.popup__input_type_link');
 const popupViewImage = document.querySelector('.popup_type_view-image');
 const popupImage = document.querySelector('.popup__image');
 const popupImageTitle = document.querySelector('.popup__image-title');
-
+const popupFormButton = popupForm.querySelector('.popup__submit-button');
+const popupFormCardButton = popupFormCard.querySelector('.popup__submit-button');
 
 function setPopupProfileValues() {
   popupUserName.value = profileUserName.textContent;
@@ -32,7 +33,7 @@ function handleFormSubmit (evt) {
 
   profileUserName.textContent = popupUserName.value;
   profileUserActivity.textContent = popupUserActivity.value;
-
+  
   closePopup(popupEditProfile);
 }
 
@@ -107,14 +108,24 @@ function closePopupOnOverlay(evt) {
   }
 }
 
-
-
-
-buttonEdit.addEventListener('click', setPopupProfileValues);
 popupFormCard.addEventListener('submit', handleFormCreate);
 popupForm.addEventListener('submit', handleFormSubmit);
-buttonEdit.addEventListener('click', () => openPopup(popupEditProfile));
-buttonAdd.addEventListener('click', () => openPopup(popupAddCard));
+buttonEdit.addEventListener('click', () => { 
+  openPopup(popupEditProfile);
+  setPopupProfileValues();
+  toggleButtonState(popupForm, popupFormButton, config);
+  hideInputError(popupForm, popupUserName, config);
+  hideInputError(popupForm, popupUserActivity, config);
+});
+
+buttonAdd.addEventListener('click', () => { 
+  popupFormCard.reset();
+  openPopup(popupAddCard)
+  toggleButtonState(popupFormCard, popupFormCardButton, config);
+  hideInputError(popupFormCard, popupUserPlace, config);
+  hideInputError(popupFormCard, popupUserLink, config);
+});
+
 buttonsClose.forEach((el) => el.addEventListener('click', () => closePopup(el.closest('.popup'))));
 popups.forEach((popup) => popup.addEventListener('mousedown', closePopupOnOverlay));
 
