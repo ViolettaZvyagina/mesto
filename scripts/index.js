@@ -96,10 +96,11 @@ function handleFormCreate (evt) {
 }
 
 function closePopupOnEsc (evt) {
-  const openedPopup = document.querySelector('.popup_opened');
   if (evt.key === 'Escape') {
+    const openedPopup = document.querySelector('.popup_opened');
     closePopup(openedPopup);
   }
+
 }
 
 function closePopupOnOverlay(evt) {
@@ -113,17 +114,13 @@ popupForm.addEventListener('submit', handleFormSubmit);
 buttonEdit.addEventListener('click', () => { 
   openPopup(popupEditProfile);
   setPopupProfileValues();
-  toggleButtonState(popupForm, popupFormButton, config);
-  hideInputError(popupForm, popupUserName, config);
-  hideInputError(popupForm, popupUserActivity, config);
+  checkInputsOnValidity(popupForm,config);
 });
 
 buttonAdd.addEventListener('click', () => { 
   popupFormCard.reset();
   openPopup(popupAddCard)
-  toggleButtonState(popupFormCard, popupFormCardButton, config);
-  hideInputError(popupFormCard, popupUserPlace, config);
-  hideInputError(popupFormCard, popupUserLink, config);
+  checkInputsOnValidity(popupFormCard,config);
 });
 
 buttonsClose.forEach((el) => el.addEventListener('click', () => closePopup(el.closest('.popup'))));

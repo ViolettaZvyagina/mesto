@@ -60,5 +60,15 @@ const toggleButtonState = (formElement, buttonElement, config) => {
   buttonElement.classList.toggle(config.inactiveButtonClass, !formElement.checkValidity());
 }
 
+const checkInputsOnValidity = (formElement, config) => {
+  const inputList = Array.from(formElement.querySelectorAll(config.inputSelector));
+  const buttonElement = formElement.querySelector(config.submitButtonSelector);
+
+  toggleButtonState(formElement, buttonElement, config);
+  inputList.forEach((inputElement) => {
+    hideInputError(formElement, inputElement, config);
+  });
+}
+
 enableValidation(config);
 
