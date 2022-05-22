@@ -1,5 +1,5 @@
 export {initialCards, Card}
-import { openPopup, closePopup } from './index.js'
+import {openPopup} from './utils.js'
 
 const initialCards = [
     {
@@ -33,15 +33,15 @@ const initialCards = [
   const popupViewImage = document.querySelector('.popup_type_view-image');
 
 class Card {
-  constructor(data, template) {
+  constructor(data, templateSelector) {
     this._name = data.name;
     this._link = data.link;
-    this._template = template;
+    this._templateSelector = templateSelector;
   }
 
   _getTemplate() {
     this.card = document
-    .querySelector(this._template)
+    .querySelector(this._templateSelector)
     .content
     .querySelector('.card')
     .cloneNode(true);
