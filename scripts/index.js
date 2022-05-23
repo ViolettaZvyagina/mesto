@@ -1,6 +1,7 @@
 import {Card} from './Card.js';
-import {initialCards, openPopup, closePopup, config} from './utils.js';
+import {openPopup, closePopup} from './utils.js';
 import {FormValidator} from './FormValidator.js';
+import {initialCards, config} from './constants.js'
 
 const content = document.querySelector('.content');
 const profile = content.querySelector('.profile');
