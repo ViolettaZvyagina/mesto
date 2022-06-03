@@ -1,16 +1,13 @@
-import {openPopup} from './utils.js'
-
-export class Card {
-  constructor(data, templateSelector) {
+export default class Card {
+  constructor(data, templateSelector, {handleCardClick}) {
+    this._data = data;
     this._name = data.name;
     this._link = data.link;
     this._templateSelector = templateSelector;
-    this._popupImage = document.querySelector('.popup__image');
-    this._popupImageTitle = document.querySelector('.popup__image-title');
-    this._popupViewImage = document.querySelector('.popup_type_view-image');
     this._element = this._getTemplate();
     this._buttonDelete = this._element.querySelector('.card__delete-button');
     this._buttonLike = this._element.querySelector('.card__like-button');
+    this._handleCardClick = handleCardClick;
   }
 
   _getTemplate() {
@@ -21,14 +18,6 @@ export class Card {
     .cloneNode(true);
 
   return this.card;
-  }
-
-  _setPopupViewImageValues() {
-    this._popupImage.src = this._link;
-    this._popupImage.alt = this._name;
-    this._popupImageTitle.textContent = this._name;
-  
-  openPopup(this._popupViewImage);
   }
 
   _deleteElement() {
@@ -50,7 +39,7 @@ export class Card {
   }
   
   _setEventListeners() {
-    this._element.querySelector('.card__image').addEventListener('click', () => this._setPopupViewImageValues());
+    this._element.querySelector('.card__image').addEventListener('click', () => this._handleCardClick(this._data));
     this._buttonDelete.addEventListener('click', () => this._deleteElement());
     this._buttonLike.addEventListener('click',() => this._toggleLike());
   }
