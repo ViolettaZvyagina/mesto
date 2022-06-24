@@ -10,7 +10,7 @@ module.exports = {
     filename: 'main.js',
         publicPath: ''
   },
-
+  devtool: 'eval-source-map', //для корректного отображения ошибок
   mode: 'development',
   devServer: {
     static: {directory: path.resolve(__dirname, './dist')}, // путь, куда "смотрит" режим разработчика

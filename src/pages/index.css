@@ -13,6 +13,7 @@
 @import url("../blocks/profile/__text/profile__text.css");
 @import url("../blocks/profile/__user-name/profile__user-name.css");
 @import url("../blocks/profile/__user-activity/profile__user-activity.css");
+@import url("../blocks/profile/__avatar-cover/profile__avatar-cover.css");
 @import url("../blocks/elements/elements.css");
 @import url("../blocks/elements/__container/elements__container.css");
 @import url("../blocks/footer/footer.css");
@@ -21,6 +22,7 @@
 @import url("../blocks/popup/__container/popup__container.css");
 @import url("../blocks/popup/__submit-button/popup__submit-button.css");
 @import url("../blocks/popup/__title/popup__title.css");
+@import url("../blocks/popup/__title/_type/popup__title_type_confirmation.css");
 @import url("../blocks/popup/popup.css");
 @import url("../blocks/popup/_opened/popup_opened.css");
 @import url("../blocks/popup/__input/popup__input.css");
@@ -32,13 +34,16 @@
 @import url("../blocks/popup/__input/_type/popup__input_type_error.css");
 @import url("../blocks/popup/__error/_visible/popup__error_visible.css");
 @import url("../blocks/popup/__submit-button/_disabled/popup__submit-button_disabled.css");
+@import url("../blocks/popup/__submit-button/_type/popup__submit-button_type_confirmation.css");
 @import url("../blocks/card/card.css");
 @import url("../blocks/card/__image/card__image.css");
+@import url("../blocks/card/__counter/card__counter.css");
 @import url("../blocks/card/__delete-button/card__delete-button.css");
 @import url("../blocks/card/__rectangle/card__rectangle.css");
 @import url("../blocks/card/__text/card__text.css");
 @import url("../blocks/card/__like-button/card__like-button.css");
 @import url("../blocks/card/__like-button/_active/card__like-button_active.css");
 @import url("../blocks/card/__image-background/card__image-background.css");
-
+@import url("../blocks/card/__delete-button/_active/card__delete-button_active.css");
+@import url("../blocks/card/__like-element/card__like-element.css");
 
