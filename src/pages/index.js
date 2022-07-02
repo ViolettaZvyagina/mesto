@@ -127,7 +127,7 @@ function createCardElement(data) {
         });
       });
     },
-    handleLikes: (cardInfo) => {
+    handleLikes: (cardInfo  ) => {
       if(card.isLiked()) {
         api.deleteLike(cardInfo)
           .then((item) => {
